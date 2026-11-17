@@ -1,39 +1,93 @@
-'''
-The setup.py file is an essential part of packaging and 
-distributing Python projects. It is used by setuptools 
-(or distutils in older Python versions) to define the configuration 
-of your project, such as its metadata, dependencies, and more
-'''
+''' setup.py file is an essential part of packaging and distributing python projects
+It is used by setuptools to define configuration, dependencies, and metadata for the project '''
 
-from setuptools import find_packages,setup
-from typing import List
 
-def get_requirements()->List[str]:
-    """
-    Thiss function will return list of requirements
-    
-    """
-    requirement_lst:List[str]=[]
+from setuptools import find_packages, setup # It helps to import packages and modules from the project directory
+from typing import List  # Its used to specify the type of data that a function can accept or return
+
+
+def get_requirements()->List[str]: # this function will return list of requirements
+    requirements_list:List[str] = [] # it will read lines from the file
     try:
-        with open('requirements.txt','r') as file:
-            #Read lines from the file
-            lines=file.readlines()
-            ## Process each line
+         with open("requirements.txt") as file:  # it will open the requirements.txt file
+            lines=file.readlines() #process each line
             for line in lines:
                 requirement=line.strip()
-                ## ignore empty lines and -e .
-                if requirement and requirement!= '-e .':
-                    requirement_lst.append(requirement)
+                if requirement and requirement != "-e .":
+                    requirements_list.append(requirement)
     except FileNotFoundError:
-        print("requirements.txt file not found")
+           print("requirements.txt file not found") # it will print the error message if the file is not found  
 
-    return requirement_lst
-
+ 
 setup(
-    name="NetworkSecurity",
+    name="Network_Security",
     version="0.0.1",
-    author="Krish Naik",
-    author_email="krishnaik06@gmail.com",
+    author="Raj"
+    author_email="deshmukhraj9021@gmail.com",
     packages=find_packages(),
-    install_requires=get_requirements()
-)
+    install_requires=get_requirements(),
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
